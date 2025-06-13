@@ -1,0 +1,34 @@
+{
+  "build": {
+    "core": "esp32",
+    "mcu": "esp32c6",
+    "variant": "esp32-c6-wroom",
+    "f_cpu": "160000000L",
+    "f_flash": "80000000L",
+    "flash_mode": "qio",
+    "flags": [
+      "-DARDUINO_USB_MODE=1",
+      "-DARDUINO_USB_CDC_ON_BOOT=1"
+    ]
+  },
+  "connectivity": [
+    "wifi", 
+    "usb"
+  ],
+  "debug": {
+    "openocd_target": "esp32c6.cfg"
+  },
+  "frameworks": [
+    "arduino"
+  ],
+  "name": "ESP32-C6-WROOM",
+  "upload": {
+    "flash_size": "4MB",
+    "maximum_size": 4194304,
+    "maximum_ram_size": 524288,
+    "require_upload_port": true,
+    "speed": 921600
+  },
+  "url": "https://github.com/BiaPopa/Omnia.git",
+  "vendor": "Custom"
+}
