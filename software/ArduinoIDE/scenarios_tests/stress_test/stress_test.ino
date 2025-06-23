@@ -11,8 +11,8 @@
 const int muxSelectPins[] = {1, 8, 11};  
 const int relayPins[] = {10, 15, 20};
 
-const char* ssid = "Numele_Tau_WiFi";
-const char* password = "Parola_WiFi";
+const char* ssid = "Vodafone-65E7";
+const char* password = "ER7kdfrkdxs7b8pm";
 
 const char* remote_ip = "172.19.41.178";  
 const int remote_port = 4210;
@@ -21,7 +21,6 @@ RTC_DS3231 rtc;
 WiFiUDP udp;
 
 volatile bool rtcInterrupt = false;
-unsigned long lastUdpSend = 0;
 
 void IRAM_ATTR rtcInterruptHandler() {
   rtcInterrupt = true;
@@ -81,12 +80,9 @@ void setup() {
 }
 
 void loop() {
-  if (millis() - lastUdpSend > 500) {
-    udp.beginPacket(remote_ip, remote_port);
-    udp.print("TX test ESP32");
-    udp.endPacket();
-    lastUdpSend = millis();
-  }
+  udp.beginPacket(remote_ip, remote_port);
+  udp.print("TX test ESP32");
+  udp.endPacket();
 
   if (rtcInterrupt) {
     rtcInterrupt = false;

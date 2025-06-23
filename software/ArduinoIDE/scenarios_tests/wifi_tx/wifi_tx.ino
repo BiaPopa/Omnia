@@ -31,5 +31,4 @@ void loop() {
   udp.endPacket();
 
   Serial.println("Packet sent");
-  delay(500); 
 }
